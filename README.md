@@ -1,2 +1,1 @@
-# DMI
-DMI
+# GroceryApp
