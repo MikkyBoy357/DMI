@@ -3,9 +3,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:shoppingApp/domain/product.dart';
-import 'package:shoppingApp/presentation/core/app_router.gr.dart';
-import 'package:shoppingApp/presentation/core/konstants.dart';
+
+import '../../../domain/product.dart';
+import '../../core/app_router.gr.dart';
+import '../../core/konstants.dart';
 
 class ProductGridItem extends StatefulWidget {
   final Product product;
@@ -45,7 +46,7 @@ class _ProductItemState extends State<ProductGridItem> {
                     ),
                     child: Align(
                       alignment: Alignment.bottomCenter,
-                      child: Image.asset(
+                      child: Image.network(
                         widget.product.image,
                         // width: 100,
                       ),
@@ -119,7 +120,8 @@ class _ProductItemState extends State<ProductGridItem> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   RatingBarIndicator(
-                    rating: widget.product.rating,
+                    // rating: 3,
+                    rating: double.tryParse(widget.product.avgRating),
                     itemSize: 16,
                     direction: Axis.horizontal,
                     itemCount: 5,

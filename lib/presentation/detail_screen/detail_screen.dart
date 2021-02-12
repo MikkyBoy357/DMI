@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:shoppingApp/domain/product.dart';
-import 'package:shoppingApp/presentation/detail_screen/widgets/add_to_cart.dart';
-import 'package:shoppingApp/presentation/detail_screen/widgets/color_size.dart';
-import 'package:shoppingApp/presentation/detail_screen/widgets/counter_with_fav_button.dart';
-import 'package:shoppingApp/presentation/detail_screen/widgets/description.dart';
-import 'package:shoppingApp/presentation/detail_screen/widgets/product_title_image.dart';
+
+import '../../domain/product.dart';
+import 'widgets/add_to_cart.dart';
+import 'widgets/color_size.dart';
+import 'widgets/counter_with_fav_button.dart';
+import 'widgets/description.dart';
+import 'widgets/product_title_image.dart';
 
 class DetailsScreen extends StatelessWidget {
   final Product product;
@@ -15,7 +16,7 @@ class DetailsScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       // each product have a color
-      backgroundColor: product.color,
+      // backgroundColor: product.color,
       appBar: buildAppBar(context),
       body: SingleChildScrollView(
         child: Column(
@@ -63,7 +64,7 @@ class DetailsScreen extends StatelessWidget {
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
-      backgroundColor: product.color,
+      // backgroundColor: product.color,
       elevation: 0,
       // leading: IconButton(
       //   icon: SvgPicture.asset(
