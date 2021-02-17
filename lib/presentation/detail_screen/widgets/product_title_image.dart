@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../domain/product.dart';
+import '../../../domain/product/product.dart';
 
 class ProductTitleWithImage extends StatelessWidget {
   const ProductTitleWithImage({
@@ -47,7 +47,7 @@ class ProductTitleWithImage extends StatelessWidget {
               Expanded(
                 child: Hero(
                   tag: "${product.id}",
-                  child: Image.asset(
+                  child: Image.network(
                     product.image,
                     fit: BoxFit.fill,
                   ),
