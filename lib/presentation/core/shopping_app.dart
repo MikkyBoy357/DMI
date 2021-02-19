@@ -21,6 +21,7 @@ class ShoppingApp extends StatelessWidget {
           router: AppRouter(),
           builder: (context, extendedNav) => Theme(
             data: ThemeData(
+              primaryColor: Color(0xFFF78909),
               textTheme: GoogleFonts.poppinsTextTheme(
                 Theme.of(context).textTheme,
               ),
@@ -37,7 +38,6 @@ class ShoppingApp extends StatelessWidget {
                     ),
                 centerTitle: true,
                 brightness: Brightness.light,
-                color: Colors.white,
                 elevation: 0,
               ),
               cursorColor: Color(0xFF04AB4C),
@@ -53,7 +53,7 @@ class ShoppingApp extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30.0),
                 ),
               ),
-              primarySwatch: Colors.green,
+              primarySwatch: Colors.orange,
               accentColor: Color(0xFF04AB4C),
             ),
             child: extendedNav,
