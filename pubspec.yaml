@@ -47,10 +47,16 @@ dev_dependencies:
   injectable_generator: ^1.0.7
   json_serializable: ^3.5.1
   flutter_launcher_icons: ^0.8.0
+  flutter_native_splash: ^0.3.0
 flutter_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/icon.jpg"  
+flutter_native_splash:
+  color: "#ffffff"
+  image: "assets/app_icon.jpg"
+  android: true
+  ios: true  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
