@@ -51,8 +51,6 @@ class _ProductItemState extends State<ProductGridItem> {
                     ),
                   ),
                   Positioned(
-                    left: 0,
-                    top: 0,
                     child: Container(
                       alignment: Alignment.center,
                       height: 40,
