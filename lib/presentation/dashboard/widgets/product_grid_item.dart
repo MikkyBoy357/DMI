@@ -89,17 +89,6 @@ class _ProductItemState extends State<ProductGridItem> {
                       },
                     ),
                   ),
-                  // Center(
-                  //   child: Container(
-                  //     width: 100,
-                  //     height: 100,
-                  //     decoration: BoxDecoration(
-                  //       color: widget.product.color.withOpacity(0.3),
-                  //       shape: BoxShape.circle,
-                  //     ),
-                  //     child: Container(),
-                  //   ),
-                  // ),
                 ],
               ),
             ), // //
@@ -162,11 +151,7 @@ class _ProductItemState extends State<ProductGridItem> {
                 ],
               ),
             ),
-            // SizedBox(height: 5),
-            // Divider(
-            //   thickness: 1,
-            //   height: 4,
-            // ),
+
             Material(
               color: Theme.of(context).accentColor,
               child: InkWell(
