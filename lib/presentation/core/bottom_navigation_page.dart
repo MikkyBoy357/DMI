@@ -47,7 +47,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
               IconButton(
                 icon: Icon(
                   Icons.home_outlined,
-                  color: _cIndex == 0 ? Theme.of(context).primaryColor : null,
+                  color: _cIndex == 0 ? Theme.of(context).accentColor : null,
                 ),
                 onPressed: () {
                   setState(() {
@@ -59,7 +59,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
               IconButton(
                 icon: Icon(
                   Icons.favorite_outline,
-                  color: _cIndex == 1 ? Theme.of(context).primaryColor : null,
+                  color: _cIndex == 1 ? Theme.of(context).accentColor : null,
                 ),
                 onPressed: () {
                   setState(() {
@@ -71,7 +71,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
               IconButton(
                 icon: Icon(
                   Icons.person_outlined,
-                  color: _cIndex == 2 ? Theme.of(context).primaryColor : null,
+                  color: _cIndex == 2 ? Theme.of(context).accentColor : null,
                 ),
                 onPressed: () {
                   setState(() {

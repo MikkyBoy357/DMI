@@ -52,6 +52,7 @@ class _ProductItemState extends State<ProductGridItem> {
                   ),
                   Positioned(
                     left: 0,
+                    top: 0,
                     child: Container(
                       alignment: Alignment.center,
                       height: 40,
@@ -73,7 +74,7 @@ class _ProductItemState extends State<ProductGridItem> {
                     ),
                   ),
                   Positioned(
-                    right: 0,
+                    right: -10,
                     bottom: -10,
                     child: IconButton(
                       icon: Icon(
@@ -103,11 +104,14 @@ class _ProductItemState extends State<ProductGridItem> {
                   // ),
                 ],
               ),
+            ), // //
+
+            Text(
+              widget.product.title,
+              style: Theme.of(context).textTheme.subtitle2,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
-            Text(widget.product.title,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                )),
             Text(
               widget.product.quantity.toString() + ' Kg',
               style: Theme.of(context).textTheme.caption,
