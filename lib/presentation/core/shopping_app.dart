@@ -4,9 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shoppingApp/application/auth/auth_bloc.dart';
 import 'package:shoppingApp/dependency_injection.dart';
-import 'package:shoppingApp/infrastructure/auth/auth_repo.dart';
-import 'package:shoppingApp/infrastructure/user/user_repo.dart';
-
+import 'package:shoppingApp/main.dart';
 import 'app_router.gr.dart';
 
 class ShoppingApp extends StatelessWidget {
@@ -19,6 +17,9 @@ class ShoppingApp extends StatelessWidget {
         title: 'Shopping App',
         builder: ExtendedNavigator.builder<AppRouter>(
           router: AppRouter(),
+          initialRoute: initScreen == 0 || initScreen == null
+              ? Routes.onboardingPage
+              : Routes.signinPage,
           builder: (context, extendedNav) => Theme(
             data: ThemeData(
               primaryColor: Color(0xFFF78909),
