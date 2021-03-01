@@ -19,7 +19,8 @@ class ShoppingApp extends StatelessWidget {
           router: AppRouter(),
           initialRoute: initScreen == 0 || initScreen == null
               ? Routes.onboardingPage
-              : Routes.signinPage,
+              // : Routes.signinPage,
+              : Routes.dashboardPage,
           builder: (context, extendedNav) => Theme(
             data: ThemeData(
               primaryColor: Color(0xFFF78909),
@@ -29,16 +30,16 @@ class ShoppingApp extends StatelessWidget {
               scaffoldBackgroundColor: Color(0xFFF8F8FF),
               appBarTheme: AppBarTheme().copyWith(
                 iconTheme:
-                    IconThemeData(color: Color(0xAA504f57)), //back button theme
+                    IconThemeData(color: Colors.white), //back button theme
                 actionsIconTheme: IconThemeData(color: Color(0xAA504f57)),
                 textTheme: Theme.of(context).textTheme.copyWith(
                       headline6: Theme.of(context).textTheme.headline6.copyWith(
-                            color: Colors.black,
+                            color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
                     ),
                 centerTitle: true,
-                brightness: Brightness.light,
+                // brightness: Brightness.light,
                 elevation: 0,
               ),
               cursorColor: Color(0xFF04AB4C),
