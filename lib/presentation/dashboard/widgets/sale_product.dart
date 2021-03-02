@@ -1,17 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
-import 'package:shoppingApp/domain/dashboard/dashboard.dart';
 import 'package:shoppingApp/domain/product/product.dart';
-
 import '../../core/app_router.gr.dart';
 import 'product_grid_item.dart';
 
-class PopularDealsGrid extends StatelessWidget {
-  final List<Product> featureProducts;
+class SaleProduct extends StatelessWidget {
+  final List<Product> saleProducts;
 
-  const PopularDealsGrid({Key key, @required this.featureProducts})
-      : super(key: key);
+  const SaleProduct({Key key, this.saleProducts}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,7 +16,7 @@ class PopularDealsGrid extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Popular Deals'.toUpperCase(),
+              'Sale Product'.toUpperCase(),
               style: Theme.of(context).textTheme.headline6,
             ),
             IconButton(
@@ -28,7 +24,7 @@ class PopularDealsGrid extends StatelessWidget {
                 onPressed: () {
                   ExtendedNavigator.of(context).push(Routes.categoryItemsList,
                       arguments: CategoryItemsListArguments(
-                          categoryName: 'Popular Deals'.toUpperCase()));
+                          categoryName: 'Sale Product'.toUpperCase()));
                 })
           ],
         ),
@@ -42,36 +38,15 @@ class PopularDealsGrid extends StatelessWidget {
             // scrollDirection: Axis.horizontal,
             shrinkWrap: true,
             crossAxisCount: 2,
-            children: featureProducts
+            children: saleProducts
                 .map(
-                  (product) => ProductGridItem(product: product),
+                  (featuredProductElement) =>
+                      ProductGridItem(product: featuredProductElement),
                 )
                 .toList(),
           ),
         )
       ],
-    );
-  }
-}
-
-class ShimmerItem extends StatelessWidget {
-  final double height, width;
-  const ShimmerItem({
-    Key key,
-    @required this.height,
-    this.width,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Shimmer.fromColors(
-      baseColor: Colors.white,
-      highlightColor: Colors.grey,
-      child: Container(
-        height: height,
-        width: width ?? double.infinity,
-        color: Colors.white,
-      ),
     );
   }
 }
