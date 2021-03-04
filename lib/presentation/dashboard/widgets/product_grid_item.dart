@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shoppingApp/domain/product/product.dart';
+import 'package:shoppingApp/presentation/core/app_router.gr.dart';
 
 import '../../core/konstants.dart';
 
@@ -25,12 +26,12 @@ class _ProductItemState extends State<ProductGridItem> {
       color: Colors.white,
       borderRadius: BorderRadius.circular(10),
       child: InkWell(
-        // onTap: () => ExtendedNavigator.of(context).push(
-        //   Routes.detailsScreen,
-        //   arguments: DetailsScreenArguments(
-        //     product: widget.productElement,
-        //   ),
-        // ),
+        onTap: () => ExtendedNavigator.of(context).push(
+          Routes.detailsScreen,
+          arguments: DetailsScreenArguments(
+            product: widget.product,
+          ),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -67,7 +68,7 @@ class _ProductItemState extends State<ProductGridItem> {
                         color: kSecondaryColor,
                       ),
                       child: Text(
-                        '80%',
+                        widget.product.discountName + "%",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 14,
@@ -104,7 +105,7 @@ class _ProductItemState extends State<ProductGridItem> {
               overflow: TextOverflow.ellipsis,
             ),
             Text(
-              widget.product.quantity.toString() + ' Kg',
+              widget.product.quantity.toString() + widget.product.quantityInfo,
               style: Theme.of(context).textTheme.caption,
             ),
             Padding(
@@ -125,8 +126,10 @@ class _ProductItemState extends State<ProductGridItem> {
                   ),
                   Image.asset(
                     'assets/veg60.png',
-                    color: Colors.green,
+                    color:
+                        widget.product.isVeg == "0" ? Colors.green : Colors.red,
                     width: 20,
+                    height: 20,
                   ),
                 ],
               ),
@@ -137,7 +140,7 @@ class _ProductItemState extends State<ProductGridItem> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '₹ ' + widget.product.price.toString(),
+                    '₹ ' + widget.product.oldPrice.toString(),
                     style: TextStyle(
                       color: Colors.grey,
                       fontWeight: FontWeight.bold,

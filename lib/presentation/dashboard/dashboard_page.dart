@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shoppingApp/application/dashboard/dashboard_bloc.dart';
+import 'package:shoppingApp/presentation/dashboard/widgets/our_brand.dart';
 import 'package:shoppingApp/presentation/dashboard/widgets/sale_product.dart';
 import 'package:shoppingApp/presentation/dashboard/widgets/top_product.dart';
 import 'dashboard_widgets/categories_grid.dart';
@@ -23,7 +24,12 @@ class DashboardPage extends StatelessWidget {
           child: BlocBuilder<DashboardBloc, DashboardState>(
             builder: (context, state) {
               return state.map(
-                loading: (_) => Center(child: CircularProgressIndicator()),
+                loading: (_) => Center(
+                    child: CircularProgressIndicator(
+                  backgroundColor: Colors.orange,
+                  valueColor: AlwaysStoppedAnimation(Colors.green),
+                  strokeWidth: 5,
+                )),
                 failure: (_) => Text('error occured'),
                 loaded: (s) => Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -43,7 +49,7 @@ class DashboardPage extends StatelessWidget {
                     ),
 
                     // RecentProduct(),
-                    // OurBrand(),
+                    OurBrand(brands: s.dashboard.brands),
                   ],
                 ),
               );
