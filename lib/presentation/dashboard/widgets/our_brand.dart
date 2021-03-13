@@ -2,8 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:shoppingApp/domain/dashboard/dashboard.dart';
-import 'package:shoppingApp/presentation/core/konstants.dart';
+import '../../../application/category/category_bloc.dart';
+import '../../../domain/dashboard/dashboard.dart';
+import '../../core/konstants.dart';
 
 import '../../core/app_router.gr.dart';
 
@@ -85,8 +86,12 @@ class BrandGridItem extends StatelessWidget {
     return ClipRRect(
       child: InkWell(
         onTap: () => ExtendedNavigator.of(context).push(
-            Routes.categoryItemsList,
-            arguments: CategoryItemsListArguments(categoryName: id)),
+          Routes.categoryPage,
+          arguments: CategoryPageArguments(
+            categoryName: 'Our Brands',
+            categoryEvent: CategoryEvent.getTopProductsstarted(),
+          ),
+        ),
         child: Container(
           margin: EdgeInsets.all(5),
           // padding: EdgeInsets.all(5),

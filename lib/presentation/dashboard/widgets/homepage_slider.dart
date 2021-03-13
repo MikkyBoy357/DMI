@@ -1,6 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:shoppingApp/domain/dashboard/dashboard.dart';
+import '../../../domain/dashboard/dashboard.dart';
 
 class HomepageSlider extends StatefulWidget {
   final List<Brand> slider; //brand and slider have same entities
@@ -31,11 +32,14 @@ class _HomepageSliderState extends State<HomepageSlider> {
                   });
                 }),
             itemBuilder: (BuildContext context, int index, int realIndex) =>
-                Image.network(
-              widget.slider[index].image,
-              fit: BoxFit.cover,
-              height: 400,
-              width: double.infinity,
+                ClipRRect(
+              borderRadius: BorderRadius.circular(16.0),
+              child: CachedNetworkImage(
+                imageUrl: widget.slider[index].image,
+                fit: BoxFit.cover,
+                height: 400,
+                width: double.infinity,
+              ),
             ),
             itemCount: widget.slider.length,
           ),

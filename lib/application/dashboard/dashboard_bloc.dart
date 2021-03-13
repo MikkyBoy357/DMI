@@ -3,10 +3,9 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:shoppingApp/domain/dashboard/dashboard.dart';
-import 'package:shoppingApp/domain/product/i_product_repo.dart';
-import 'package:shoppingApp/domain/product/product.dart';
-import 'package:shoppingApp/infrastructure/product/product_repo.dart';
+import '../../domain/dashboard/dashboard.dart';
+import '../../domain/product/i_product_repo.dart';
+import '../../infrastructure/product/product_repo.dart';
 
 part 'dashboard_event.dart';
 part 'dashboard_state.dart';
@@ -14,9 +13,9 @@ part 'dashboard_bloc.freezed.dart';
 
 @injectable
 class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
-  DashboardBloc() : super(const _Loading());
+  DashboardBloc(this._productRepo) : super(const _Loading());
 
-  final IProductRepo _productRepo = ProductRepo();
+  final IProductRepo _productRepo;
 
   @override
   Stream<DashboardState> mapEventToState(

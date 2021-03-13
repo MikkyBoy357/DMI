@@ -9,18 +9,24 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import '../../application/category/category_bloc.dart';
 import '../../domain/product/product.dart';
 import '../about_me/about_me_page.dart';
 import '../auth/common/password_recovery.dart';
 import '../auth/signin/signin_page.dart';
 import '../auth/signup/signup_page.dart';
 import '../cart/cart_page.dart';
-import '../category_items_list/category_items_list.dart';
+import '../category/category_page.dart';
+import '../dashboard/bottom_body/widgets/about_us.dart';
+import '../dashboard/bottom_body/widgets/contact_us.dart';
+import '../dashboard/bottom_body/widgets/faq.dart';
+import '../dashboard/bottom_body/widgets/privacy_policy.dart';
+import '../dashboard/bottom_body/widgets/terms_and_conditon.dart';
 import '../dashboard/dashboard_page.dart';
-import '../dashboard/onboarding/onboarding.dart';
 import '../detail_screen/detail_screen.dart';
 import '../favorites/favorites.dart';
 import '../notification/notification_page.dart';
+import '../onboarding/onboarding.dart';
 import '../review/review_page.dart';
 import 'bottom_navigation_page.dart';
 
@@ -28,6 +34,11 @@ class Routes {
   static const String onboardingPage = '/onboarding-page';
   static const String signinPage = '/signin-page';
   static const String dashboardPage = '/dashboard-page';
+  static const String aboutUs = '/about-us';
+  static const String contactUs = '/contact-us';
+  static const String fAQ = '/f-aQ';
+  static const String privacyPolicy = '/privacy-policy';
+  static const String termAndCondition = '/term-and-condition';
   static const String bottomNavigationPage = '/bottom-navigation-page';
   static const String signupPage = '/signup-page';
   static const String aboutMePage = '/about-me-page';
@@ -35,13 +46,18 @@ class Routes {
   static const String cartPage = '/cart-page';
   static const String notificationsPage = '/notifications-page';
   static const String reviewPage = '/review-page';
-  static const String categoryItemsList = '/category-items-list';
+  static const String categoryPage = '/category-page';
   static const String detailsScreen = '/details-screen';
   static const String passwordRecovery = '/password-recovery';
   static const all = <String>{
     onboardingPage,
     signinPage,
     dashboardPage,
+    aboutUs,
+    contactUs,
+    fAQ,
+    privacyPolicy,
+    termAndCondition,
     bottomNavigationPage,
     signupPage,
     aboutMePage,
@@ -49,7 +65,7 @@ class Routes {
     cartPage,
     notificationsPage,
     reviewPage,
-    categoryItemsList,
+    categoryPage,
     detailsScreen,
     passwordRecovery,
   };
@@ -62,6 +78,11 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.onboardingPage, page: OnboardingPage),
     RouteDef(Routes.signinPage, page: SigninPage),
     RouteDef(Routes.dashboardPage, page: DashboardPage),
+    RouteDef(Routes.aboutUs, page: AboutUs),
+    RouteDef(Routes.contactUs, page: ContactUs),
+    RouteDef(Routes.fAQ, page: FAQ),
+    RouteDef(Routes.privacyPolicy, page: PrivacyPolicy),
+    RouteDef(Routes.termAndCondition, page: TermAndCondition),
     RouteDef(Routes.bottomNavigationPage, page: BottomNavigationPage),
     RouteDef(Routes.signupPage, page: SignupPage),
     RouteDef(Routes.aboutMePage, page: AboutMePage),
@@ -69,7 +90,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.cartPage, page: CartPage),
     RouteDef(Routes.notificationsPage, page: NotificationsPage),
     RouteDef(Routes.reviewPage, page: ReviewPage),
-    RouteDef(Routes.categoryItemsList, page: CategoryItemsList),
+    RouteDef(Routes.categoryPage, page: CategoryPage),
     RouteDef(Routes.detailsScreen, page: DetailsScreen),
     RouteDef(Routes.passwordRecovery, page: PasswordRecovery),
   ];
@@ -91,6 +112,36 @@ class AppRouter extends RouterBase {
     DashboardPage: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => DashboardPage(),
+        settings: data,
+      );
+    },
+    AboutUs: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => AboutUs(),
+        settings: data,
+      );
+    },
+    ContactUs: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => ContactUs(),
+        settings: data,
+      );
+    },
+    FAQ: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => FAQ(),
+        settings: data,
+      );
+    },
+    PrivacyPolicy: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => PrivacyPolicy(),
+        settings: data,
+      );
+    },
+    TermAndCondition: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => TermAndCondition(),
         settings: data,
       );
     },
@@ -136,14 +187,13 @@ class AppRouter extends RouterBase {
         settings: data,
       );
     },
-    CategoryItemsList: (data) {
-      final args = data.getArgs<CategoryItemsListArguments>(
-        orElse: () => CategoryItemsListArguments(),
-      );
+    CategoryPage: (data) {
+      final args = data.getArgs<CategoryPageArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => CategoryItemsList(
+        builder: (context) => CategoryPage(
           key: args.key,
           categoryName: args.categoryName,
+          categoryEvent: args.categoryEvent,
         ),
         settings: data,
       );
@@ -180,6 +230,17 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushDashboardPage() => push<dynamic>(Routes.dashboardPage);
 
+  Future<dynamic> pushAboutUs() => push<dynamic>(Routes.aboutUs);
+
+  Future<dynamic> pushContactUs() => push<dynamic>(Routes.contactUs);
+
+  Future<dynamic> pushFAQ() => push<dynamic>(Routes.fAQ);
+
+  Future<dynamic> pushPrivacyPolicy() => push<dynamic>(Routes.privacyPolicy);
+
+  Future<dynamic> pushTermAndCondition() =>
+      push<dynamic>(Routes.termAndCondition);
+
   Future<dynamic> pushBottomNavigationPage() =>
       push<dynamic>(Routes.bottomNavigationPage);
 
@@ -196,14 +257,15 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushReviewPage() => push<dynamic>(Routes.reviewPage);
 
-  Future<dynamic> pushCategoryItemsList({
+  Future<dynamic> pushCategoryPage({
     Key key,
-    String categoryName,
+    @required String categoryName,
+    @required CategoryEvent categoryEvent,
   }) =>
       push<dynamic>(
-        Routes.categoryItemsList,
-        arguments:
-            CategoryItemsListArguments(key: key, categoryName: categoryName),
+        Routes.categoryPage,
+        arguments: CategoryPageArguments(
+            key: key, categoryName: categoryName, categoryEvent: categoryEvent),
       );
 
   Future<dynamic> pushDetailsScreen({
@@ -223,11 +285,13 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 /// Arguments holder classes
 /// *************************************************************************
 
-/// CategoryItemsList arguments holder class
-class CategoryItemsListArguments {
+/// CategoryPage arguments holder class
+class CategoryPageArguments {
   final Key key;
   final String categoryName;
-  CategoryItemsListArguments({this.key, this.categoryName});
+  final CategoryEvent categoryEvent;
+  CategoryPageArguments(
+      {this.key, @required this.categoryName, @required this.categoryEvent});
 }
 
 /// DetailsScreen arguments holder class
