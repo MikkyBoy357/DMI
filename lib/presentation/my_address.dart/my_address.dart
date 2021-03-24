@@ -1,3 +1,7 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import '../common_widget/custom_button.dart';
 import '../common_widget/text_field_widget.dart';
@@ -9,9 +13,30 @@ class MyAddress extends StatefulWidget {
 }
 
 class _MyAddressState extends State<MyAddress> {
+  getAddress() async {
+    FormData formData = new FormData.fromMap({'user_id': 16});
+    Dio dio = new Dio();
+    dio.options.headers["authorization"] =
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2IiwibmFtZSI6IktyaXNoYW55YWRhdiIsImVtYWlsIjoieWFkYXZiYWxrcmlzaGFuLjIwQGdtYWlsLmNvbSIsImNyZWF0ZWRfYXQiOiIyMDIxLTAzLTIzIDIzOjExOjU2IiwidGltZSI6MTYxNjU3MDU0OX0.fzhYyBgUe6fELqDG-iBggSr8s830O5kqOMF-i4UoaBM";
+    dio.options.headers['device_id'] = 123456;
+    dio.options.headers['device_version'] = 1;
+    dio.options.headers['device_type'] = 1;
+    dio.options.headers['store_id'] = 14;
+    var response = await dio.post(
+      'http://4percentmedical.com/dks/grocery/Api/Restapi/addressList',
+      options: Options(headers: {
+        HttpHeaders.contentTypeHeader: "application/json",
+      }),
+      data: formData,
+    );
+    var results = jsonDecode(response.data);
+    print(results['responsedata'][0][1]['address']);
+  }
+
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {
+    getAddress();
     return Scaffold(
       backgroundColor: Colors.grey[300],
       appBar: AppBar(

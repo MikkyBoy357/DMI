@@ -68,7 +68,7 @@ class DashboardPage extends StatelessWidget {
                     Divider(
                       height: 15,
                     ),
-                    SocialMedia()
+                    // SocialMedia()
                   ],
                 ),
               );

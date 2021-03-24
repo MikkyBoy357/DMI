@@ -61,7 +61,7 @@ class _OurBrandState extends State<OurBrand> {
             enlargeCenterPage: true,
             autoPlay: true,
             viewportFraction: 0.5,
-            height: 150,
+            height: 130,
             // aspectRatio: 1,
           ),
         ),

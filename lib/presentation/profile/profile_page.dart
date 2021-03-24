@@ -94,7 +94,8 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () =>
+                          ExtendedNavigator.of(context).push(Routes.myAddress),
                       child: ListTile(
                         leading: Icon(Icons.location_city_sharp,
                             color: Theme.of(context).accentColor),

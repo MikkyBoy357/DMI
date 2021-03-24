@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shoppingApp/main_screen.dart';
 import 'dependency_injection.dart';
 import 'presentation/core/shopping_app.dart';
 
@@ -18,4 +19,9 @@ Future<void> main() async {
   });
   configureDependencies();
   runApp(ShoppingApp());
+  // runApp(
+  //   MaterialApp(
+  //     home: MainScreen(),
+  //   ),
+  // );
 }

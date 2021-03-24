@@ -8,6 +8,8 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:shoppingApp/main_screen.dart';
+import 'package:shoppingApp/presentation/my_address.dart/my_address.dart';
 
 import '../../application/category/category_bloc.dart';
 import '../../domain/product/product.dart';
@@ -34,6 +36,8 @@ class Routes {
   static const String onboardingPage = '/onboarding-page';
   static const String signinPage = '/signin-page';
   static const String dashboardPage = '/dashboard-page';
+  static const String mainScreen = '/mainScreen';
+  static const String myAddress = '/myAddress';
   static const String aboutUs = '/about-us';
   static const String contactUs = '/contact-us';
   static const String fAQ = '/f-aQ';
@@ -53,6 +57,8 @@ class Routes {
     onboardingPage,
     signinPage,
     dashboardPage,
+    mainScreen,
+    myAddress,
     aboutUs,
     contactUs,
     fAQ,
@@ -78,6 +84,8 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.onboardingPage, page: OnboardingPage),
     RouteDef(Routes.signinPage, page: SigninPage),
     RouteDef(Routes.dashboardPage, page: DashboardPage),
+    RouteDef(Routes.mainScreen, page: MainScreen),
+    RouteDef(Routes.myAddress, page: MyAddress),
     RouteDef(Routes.aboutUs, page: AboutUs),
     RouteDef(Routes.contactUs, page: ContactUs),
     RouteDef(Routes.fAQ, page: FAQ),
@@ -112,6 +120,18 @@ class AppRouter extends RouterBase {
     DashboardPage: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => DashboardPage(),
+        settings: data,
+      );
+    },
+    MainScreen: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => MainScreen(),
+        settings: data,
+      );
+    },
+    MyAddress: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => MyAddress(),
         settings: data,
       );
     },
@@ -229,6 +249,10 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushSigninPage() => push<dynamic>(Routes.signinPage);
 
   Future<dynamic> pushDashboardPage() => push<dynamic>(Routes.dashboardPage);
+
+  Future<dynamic> pushMainScreen() => push<dynamic>(Routes.mainScreen);
+
+  Future<dynamic> pushMyAddress() => push<dynamic>(Routes.myAddress);
 
   Future<dynamic> pushAboutUs() => push<dynamic>(Routes.aboutUs);
 
