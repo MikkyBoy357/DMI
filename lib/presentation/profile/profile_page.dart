@@ -85,7 +85,8 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () => ExtendedNavigator.of(context)
+                          .push(Routes.favoritesPage),
                       child: ListTile(
                         leading: Icon(Icons.favorite_border_outlined,
                             color: Theme.of(context).accentColor),

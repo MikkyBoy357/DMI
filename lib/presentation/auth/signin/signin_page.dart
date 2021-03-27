@@ -21,6 +21,7 @@ class SigninPage extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           title: Text(
             "Login",
           ),
@@ -40,7 +41,13 @@ class SigninPage extends StatelessWidget {
                 "sign in to your account",
                 style: Constants.signIn,
               ),
+              Container(
+                height: MediaQuery.of(context).size.height / 20,
+              ),
               SigninForm(),
+              Container(
+                height: MediaQuery.of(context).size.height / 20,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

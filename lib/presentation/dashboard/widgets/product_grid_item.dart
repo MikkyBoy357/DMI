@@ -208,7 +208,8 @@ class _ProductItemState extends State<ProductGridItem> {
                       },
                       child: Container(
                         alignment: Alignment.center,
-                        height: buttonWidth,
+                        // height: buttonWidth,
+                        height: MediaQuery.of(context).size.height / 23,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

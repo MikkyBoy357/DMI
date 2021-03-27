@@ -26,7 +26,10 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
         filled: true,
         fillColor: Colors.white,
         hintText: widget.textelements,
-        prefixIcon: Icon(widget.prefixIcon),
+        prefixIcon: Icon(
+          widget.prefixIcon,
+          color: Colors.green,
+        ),
         suffixIcon: widget.isPassword ? prefixButton() : null,
         contentPadding: EdgeInsets.all(15),
         border: OutlineInputBorder(

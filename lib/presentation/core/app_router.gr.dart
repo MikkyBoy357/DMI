@@ -9,7 +9,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:shoppingApp/main_screen.dart';
-import 'package:shoppingApp/presentation/my_address.dart/my_address.dart';
+import 'package:shoppingApp/presentation/dashboard/shop/shop_page.dart';
+import 'package:shoppingApp/presentation/profile/my_address.dart/my_address.dart';
 
 import '../../application/category/category_bloc.dart';
 import '../../domain/product/product.dart';
@@ -51,6 +52,7 @@ class Routes {
   static const String notificationsPage = '/notifications-page';
   static const String reviewPage = '/review-page';
   static const String categoryPage = '/category-page';
+  static const String shopPage = '/shop-page';
   static const String detailsScreen = '/details-screen';
   static const String passwordRecovery = '/password-recovery';
   static const all = <String>{
@@ -72,6 +74,7 @@ class Routes {
     notificationsPage,
     reviewPage,
     categoryPage,
+    shopPage,
     detailsScreen,
     passwordRecovery,
   };
@@ -99,6 +102,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.notificationsPage, page: NotificationsPage),
     RouteDef(Routes.reviewPage, page: ReviewPage),
     RouteDef(Routes.categoryPage, page: CategoryPage),
+    RouteDef(Routes.shopPage, page: ShopPage),
     RouteDef(Routes.detailsScreen, page: DetailsScreen),
     RouteDef(Routes.passwordRecovery, page: PasswordRecovery),
   ];
@@ -215,6 +219,13 @@ class AppRouter extends RouterBase {
           categoryName: args.categoryName,
           categoryEvent: args.categoryEvent,
         ),
+        settings: data,
+      );
+    },
+    ShopPage: (data) {
+      final args = data.getArgs<CategoryPageArguments>(nullOk: false);
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => ShopPage(),
         settings: data,
       );
     },

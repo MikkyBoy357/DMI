@@ -1,78 +1,113 @@
 import 'package:flutter/material.dart';
 
 class FavoriteListItem extends StatelessWidget {
+  final String title;
+  final String oldPrice;
+  final String price;
+  final String image;
   const FavoriteListItem({
     Key key,
+    this.title,
+    this.oldPrice,
+    this.price,
+    this.image,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
-      margin: EdgeInsets.symmetric(vertical: 8),
-      decoration: BoxDecoration(boxShadow: [
-        BoxShadow(
-          color: Colors.black26,
-          offset: Offset(0, 2),
-          blurRadius: 6.0,
-        )
-      ], borderRadius: BorderRadius.circular(18.0), color: Colors.white),
-      child: FittedBox(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Image.asset(
-              "assets/background.png",
-              width: 100,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Column(
-                children: [
-                  Text(
-                    "Rs 500",
-                    style: TextStyle(
-                        fontSize: 12,
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      margin: EdgeInsets.symmetric(vertical: 10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        // borderRadius: BorderRadius.circular(18.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            offset: Offset(0, 2),
+            blurRadius: 6.0,
+          )
+        ],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Image.network(
+                image,
+                height: 120,
+                width: 100,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      // color: Colors.red,
+                      width: 140,
+                      child: Text(
+                        title.toUpperCase(),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Text(
+                      "₹ $price",
+                      style: TextStyle(
+                        fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Theme.of(context).accentColor),
-                  ),
-                  Text(
-                    "Organic lemons",
-                    style: TextStyle(fontSize: 12),
-                  ),
-                  Text(
-                    "1 kg",
-                  )
-                ],
-              ),
-            ),
-            Container(
-              decoration:
-                  BoxDecoration(shape: BoxShape.circle, color: Colors.green),
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.shopping_bag_outlined,
-                  color: Colors.white,
-                  size: 23,
+                        color: Theme.of(context).accentColor,
+                      ),
+                    ),
+                    Text(
+                      "1 kg",
+                      style: TextStyle(fontSize: 14),
+                    ),
+                  ],
                 ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.all(5.0),
-              decoration:
-                  BoxDecoration(shape: BoxShape.circle, color: Colors.green),
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.delete,
-                  color: Colors.white,
-                  size: 23,
+            ],
+          ),
+          Container(
+            // color: Colors.red,
+            // width: 150,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(5.0),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle, color: Colors.green),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.shopping_bag_outlined,
+                      color: Colors.white,
+                      size: 23,
+                    ),
+                  ),
                 ),
-              ),
-            )
-          ],
-        ),
+                Container(
+                  margin: EdgeInsets.all(5.0),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle, color: Colors.green),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.delete,
+                      color: Colors.white,
+                      size: 23,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

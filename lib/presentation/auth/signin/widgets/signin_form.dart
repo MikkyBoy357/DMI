@@ -43,7 +43,11 @@ class _SigninFormState extends State<SigninForm> {
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.email_outlined),
+                labelStyle: TextStyle(color: Colors.green),
+                prefixIcon: Icon(
+                  Icons.email_outlined,
+                  color: Colors.green,
+                ),
                 labelText: 'Email Address',
               ),
               validator: emailValidator,
@@ -54,8 +58,10 @@ class _SigninFormState extends State<SigninForm> {
               controller: passwordController,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
+                labelStyle: TextStyle(color: Colors.green),
                 prefixIcon: Icon(
                   Icons.lock_outline,
+                  color: Colors.green,
                 ),
                 suffixIcon: IconButton(
                   onPressed: () {
@@ -67,12 +73,16 @@ class _SigninFormState extends State<SigninForm> {
                     isObscured
                         ? Icons.visibility_off_outlined
                         : Icons.visibility_outlined,
+                    color: Colors.green,
                   ),
                 ),
                 labelText: 'Password',
               ),
               obscureText: isObscured,
               validator: passwordValidator,
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height / 30,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

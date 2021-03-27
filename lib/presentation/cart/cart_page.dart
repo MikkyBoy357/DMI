@@ -20,7 +20,11 @@ class CartPage extends StatelessWidget {
             children: [
               Icon(Icons.shopping_bag_outlined,
                   color: Colors.green, size: height * 0.25),
-              Text("Your Cart is empty", style: Constants.regularHeading),
+              Text("Your Cart is empty",
+                  style: TextStyle(
+                      fontSize: 23.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black)),
               Text("Shop for some products in order",
                   style: Constants.subHeading),
               Text(" to purchase them", style: Constants.subHeading),

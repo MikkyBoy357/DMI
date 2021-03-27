@@ -32,7 +32,11 @@ class _SignupFormState extends State<SignupForm> {
             TextFormField(
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.person_outline),
+                labelStyle: TextStyle(color: Colors.green),
+                prefixIcon: Icon(
+                  Icons.person_outline,
+                  color: Colors.green,
+                ),
                 labelText: 'Name',
               ),
               // validator: nameValidator,
@@ -50,7 +54,11 @@ class _SignupFormState extends State<SignupForm> {
             TextFormField(
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.email_outlined),
+                labelStyle: TextStyle(color: Colors.green),
+                prefixIcon: Icon(
+                  Icons.email_outlined,
+                  color: Colors.green,
+                ),
                 labelText: 'Email',
               ),
               validator: emailValidator,
@@ -60,7 +68,11 @@ class _SignupFormState extends State<SignupForm> {
             TextFormField(
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.phone_outlined),
+                labelStyle: TextStyle(color: Colors.green),
+                prefixIcon: Icon(
+                  Icons.phone_outlined,
+                  color: Colors.green,
+                ),
                 labelText: 'Phone',
               ),
               validator: phoneValidator,
@@ -70,7 +82,11 @@ class _SignupFormState extends State<SignupForm> {
             TextFormField(
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.lock_outline),
+                labelStyle: TextStyle(color: Colors.green),
+                prefixIcon: Icon(
+                  Icons.lock_outline,
+                  color: Colors.green,
+                ),
                 labelText: 'Password',
                 suffixIcon: IconButton(
                   onPressed: () {
@@ -107,7 +123,7 @@ class _SignupFormState extends State<SignupForm> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Already have an account?",
+                    "Already have an account? ",
                     style: Constants.donthave,
                   ),
                   InkWell(

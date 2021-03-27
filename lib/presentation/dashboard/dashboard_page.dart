@@ -22,57 +22,60 @@ class DashboardPage extends StatelessWidget {
       create: (context) =>
           getIt.get<DashboardBloc>()..add(DashboardEvent.started()),
       child: Scaffold(
-        body: SingleChildScrollView(
-          padding: EdgeInsets.all(16),
-          child: BlocBuilder<DashboardBloc, DashboardState>(
-            builder: (context, state) {
-              return state.map(
-                loading: (_) => Shimmerdashboard(),
-                failure: (_) => Error404Screen(),
-                loaded: (s) => Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    SearchBar(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    HomepageBanner(
-                      banner: s.dashboard.banner,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    HomepageSlider(
-                      slider: s.dashboard.slider,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    CategoriesGrid(
-                      shopByCategory: s.dashboard.shopByCategory,
-                    ),
-                    PopularDealsGrid(
-                      featureProducts: s.dashboard.featuredProducts,
-                    ),
-                    SaleProduct(
-                      saleProducts: s.dashboard.saleProducts,
-                    ),
-                    TopProduct(
-                      topProducts: s.dashboard.topProducts,
-                    ),
-                    // RecentProduct(),
-                    OurBrand(brands: s.dashboard.brands),
-                    Divider(
-                      height: 15,
-                    ),
-                    // SocialMedia()
-                  ],
-                ),
-              );
-            },
+        body: Padding(
+          padding: const EdgeInsets.only(top: 10.0),
+          child: SingleChildScrollView(
+            padding: EdgeInsets.all(10),
+            child: BlocBuilder<DashboardBloc, DashboardState>(
+              builder: (context, state) {
+                return state.map(
+                  loading: (_) => Shimmerdashboard(),
+                  failure: (_) => Error404Screen(),
+                  loaded: (s) => Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 10,
+                      ),
+                      SearchBar(),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      HomepageBanner(
+                        banner: s.dashboard.banner,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      HomepageSlider(
+                        slider: s.dashboard.slider,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      CategoriesGrid(
+                        shopByCategory: s.dashboard.shopByCategory,
+                      ),
+                      PopularDealsGrid(
+                        featureProducts: s.dashboard.featuredProducts,
+                      ),
+                      SaleProduct(
+                        saleProducts: s.dashboard.saleProducts,
+                      ),
+                      TopProduct(
+                        topProducts: s.dashboard.topProducts,
+                      ),
+                      // RecentProduct(),
+                      OurBrand(brands: s.dashboard.brands),
+                      Divider(
+                        height: 15,
+                      ),
+                      // SocialMedia()
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
         ),
       ),

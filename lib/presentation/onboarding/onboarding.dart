@@ -25,8 +25,8 @@ class OnboardingPage extends StatelessWidget {
         children: [
           Center(
             child: Container(
-              width: 260,
-              height: 240,
+              width: 300,
+              height: 280,
               decoration: BoxDecoration(
                 border: Border.all(
                   color: Colors.green,
@@ -63,8 +63,8 @@ class OnboardingPage extends StatelessWidget {
         children: [
           Center(
             child: Container(
-              width: 280,
-              height: 240,
+              width: 300,
+              height: 280,
               decoration: BoxDecoration(
                 border: Border.all(
                   color: Colors.green,
@@ -101,8 +101,8 @@ class OnboardingPage extends StatelessWidget {
         children: [
           Center(
             child: Container(
-              width: 280,
-              height: 240,
+              width: 300,
+              height: 280,
               decoration: BoxDecoration(
                 border: Border.all(
                   color: Colors.green,
@@ -139,8 +139,8 @@ class OnboardingPage extends StatelessWidget {
         children: [
           Center(
             child: Container(
-              width: 280,
-              height: 240,
+              width: 300,
+              height: 280,
               decoration: BoxDecoration(
                 border: Border.all(
                   color: Colors.green,
