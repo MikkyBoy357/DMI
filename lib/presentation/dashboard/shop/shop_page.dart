@@ -168,7 +168,7 @@ class _ShopPageState extends State<ShopPage> {
       body: Padding(
         padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10),
         child: GridView.builder(
-          itemCount: results.length,
+          itemCount: results.length ?? 6,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: 0.55,

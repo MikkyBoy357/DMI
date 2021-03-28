@@ -124,20 +124,28 @@ class _SigninFormState extends State<SigninForm> {
             CustomFullWidthButton(
               text: 'Login',
               onPressed: () {
-                context.read<AuthBloc>().add(
-                      AuthEvent.loginRequested(
-                        username: '9826477344',
-                        password: '123456',
-                        // username: emailController.text,
-                        // password: passwordController.text,
-                      ),
-                    );
-                if (_formkey.currentState.validate()) {
-                  print("successful");
+                if (emailController.text.isNotEmpty &&
+                    passwordController.text.isNotEmpty) {
+                  if (_formkey.currentState.validate()) {
+                    context.read<AuthBloc>().add(
+                          AuthEvent.loginRequested(
+                            // username: '9826477344',
+                            // password: '123456',
+                            username: emailController.text,
+                            password: passwordController.text,
+                          ),
+                        );
 
-                  return;
+                    print("Login Requested");
+                    print(
+                        "Email ${emailController.text}, Password ${passwordController.text}");
+
+                    return;
+                  } else {
+                    print("Invalid Email or Password");
+                  }
                 } else {
-                  print("UnSuccessfull");
+                  print("Fill the text fields");
                 }
               },
             ),

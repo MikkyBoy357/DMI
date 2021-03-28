@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shoppingApp/presentation/bottom_bar.dart';
 import 'package:shoppingApp/presentation/cart/cart_page.dart';
 import 'package:shoppingApp/presentation/dashboard/dashboard_page.dart';
+import 'package:shoppingApp/presentation/favorites/favorites.dart';
 import 'package:shoppingApp/presentation/profile/profile_page.dart';
 
 class MainScreen extends StatefulWidget {
@@ -26,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
           DashboardPage(),
           Center(child: Text('Search')),
           CartPage(),
-          Center(child: Text('Favorite')),
+          FavoritesPage(),
           ProfilePage(),
         ],
         controller: _pageController,

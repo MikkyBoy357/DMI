@@ -16,8 +16,9 @@ class FavoriteListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: MediaQuery.of(context).size.height * 0.13,
       padding: EdgeInsets.symmetric(horizontal: 10),
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: EdgeInsets.symmetric(vertical: 9),
       decoration: BoxDecoration(
         color: Colors.white,
         // borderRadius: BorderRadius.circular(18.0),
@@ -74,12 +75,12 @@ class FavoriteListItem extends StatelessWidget {
           ),
           Container(
             // color: Colors.red,
-            // width: 150,
+            height: MediaQuery.of(context).size.height * 0.13,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  margin: EdgeInsets.all(5.0),
+                  // margin: EdgeInsets.all(1.0),
                   decoration: BoxDecoration(
                       shape: BoxShape.circle, color: Colors.green),
                   child: IconButton(
@@ -92,13 +93,13 @@ class FavoriteListItem extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.all(5.0),
+                  // margin: EdgeInsets.all(0.0),
                   decoration: BoxDecoration(
                       shape: BoxShape.circle, color: Colors.green),
                   child: IconButton(
                     onPressed: () {},
                     icon: Icon(
-                      Icons.delete,
+                      Icons.favorite_border_outlined,
                       color: Colors.white,
                       size: 23,
                     ),

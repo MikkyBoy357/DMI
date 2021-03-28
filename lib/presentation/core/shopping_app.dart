@@ -22,7 +22,7 @@ class ShoppingApp extends StatelessWidget {
               ? Routes.onboardingPage
               // : Routes.signinPage,
               // : Routes.dashboardPage,
-              : Routes.mainScreen,
+              : Routes.signinPage,
           builder: (context, extendedNav) => Theme(
             data: ThemeData(
               primaryColor: Colors.white,

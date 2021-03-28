@@ -134,7 +134,7 @@ class _ShopItemCardState extends State<ShopItemCard> {
                   child: Text(
                     widget.product.title ?? 'Title',
                     style: Theme.of(context).textTheme.subtitle2,
-                    maxLines: 2,
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -207,7 +207,8 @@ class _ShopItemCardState extends State<ShopItemCard> {
                     },
                     child: Container(
                       alignment: Alignment.center,
-                      height: buttonWidth,
+                      // height: buttonWidth,
+                      height: MediaQuery.of(context).size.height / 23,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

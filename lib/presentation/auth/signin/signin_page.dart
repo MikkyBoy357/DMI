@@ -46,7 +46,7 @@ class SigninPage extends StatelessWidget {
               ),
               SigninForm(),
               Container(
-                height: MediaQuery.of(context).size.height / 20,
+                height: MediaQuery.of(context).size.height / 40,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

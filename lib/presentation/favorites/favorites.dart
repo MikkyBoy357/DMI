@@ -52,7 +52,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: ListView.builder(
           itemCount: results.length,
           itemBuilder: (context, index) {

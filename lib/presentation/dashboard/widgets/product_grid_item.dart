@@ -129,7 +129,7 @@ class _ProductItemState extends State<ProductGridItem> {
                     child: Text(
                       widget.product.title,
                       style: Theme.of(context).textTheme.subtitle2,
-                      maxLines: 2,
+                      maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
@@ -198,7 +198,7 @@ class _ProductItemState extends State<ProductGridItem> {
                   ),
 
                   Material(
-                    color: Theme.of(context).accentColor,
+                    color: Colors.white,
                     child: InkWell(
                       onTap: () async {
                         await FlushbarHelper.createSuccess(
@@ -215,13 +215,13 @@ class _ProductItemState extends State<ProductGridItem> {
                           children: [
                             FaIcon(
                               FontAwesomeIcons.cartPlus,
-                              color: Colors.white,
+                              color: Colors.green,
                             ),
                             VerticalDivider(),
                             Text(
                               'Add to cart'.toUpperCase(),
                               style: TextStyle(
-                                color: Colors.white,
+                                color: Colors.green,
                               ),
                             ),
                           ],
