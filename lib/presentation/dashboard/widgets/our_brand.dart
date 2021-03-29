@@ -34,13 +34,13 @@ class _OurBrandState extends State<OurBrand> {
             IconButton(
               icon: Icon(Icons.arrow_forward),
               onPressed: () {
-                ExtendedNavigator.of(context).push(
-                  Routes.shopPage,
-                  arguments: CategoryPageArguments(
-                    categoryName: 'Featured Product',
-                    categoryEvent: CategoryEvent.getFeaturedProductsstarted(),
-                  ),
-                );
+                // ExtendedNavigator.of(context).push(
+                //   Routes.shopPage,
+                //   arguments: CategoryPageArguments(
+                //     categoryName: 'Featured Product',
+                //     categoryEvent: CategoryEvent.getFeaturedProductsstarted(),
+                //   ),
+                // );
               },
             ),
           ],

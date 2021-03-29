@@ -5,6 +5,8 @@ import 'package:shoppingApp/presentation/dashboard/dashboard_page.dart';
 import 'package:shoppingApp/presentation/favorites/favorites.dart';
 import 'package:shoppingApp/presentation/profile/profile_page.dart';
 
+import 'application/auth/auth_bloc.dart';
+
 class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -46,4 +48,8 @@ class _MainScreenState extends State<MainScreen> {
       ),
     );
   }
+
+  // void logout() {
+  //   context.read<AuthBloc>().add(AuthEvent.logoutRequested());
+  // }
 }

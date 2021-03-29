@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
+import 'package:shoppingApp/main.dart';
 import '../../../../application/auth/auth_bloc.dart';
 
 import '../../../common_widget/custom_button.dart';
@@ -124,28 +125,23 @@ class _SigninFormState extends State<SigninForm> {
             CustomFullWidthButton(
               text: 'Login',
               onPressed: () {
-                if (emailController.text.isNotEmpty &&
-                    passwordController.text.isNotEmpty) {
-                  if (_formkey.currentState.validate()) {
-                    context.read<AuthBloc>().add(
-                          AuthEvent.loginRequested(
-                            // username: '9826477344',
-                            // password: '123456',
-                            username: emailController.text,
-                            password: passwordController.text,
-                          ),
-                        );
+                if (_formkey.currentState.validate()) {
+                  context.read<AuthBloc>().add(
+                        AuthEvent.loginRequested(
+                          // username: '9826477344',
+                          // password: '123456',
+                          username: emailController.text,
+                          password: passwordController.text,
+                        ),
+                      );
+                  initScreen = 1;
+                  print("Login Requested");
+                  print(
+                      "Email ${emailController.text}, Password ${passwordController.text}");
 
-                    print("Login Requested");
-                    print(
-                        "Email ${emailController.text}, Password ${passwordController.text}");
-
-                    return;
-                  } else {
-                    print("Invalid Email or Password");
-                  }
+                  return;
                 } else {
-                  print("Fill the text fields");
+                  print("Invalid Email or Password");
                 }
               },
             ),

@@ -9,9 +9,9 @@ import 'presentation/core/shopping_app.dart';
 int initScreen;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SharedPreferences preferences = await SharedPreferences.getInstance();
-  initScreen = preferences.getInt("initScreen");
-  await preferences.setInt("initScreen", 1);
+  // SharedPreferences preferences = await SharedPreferences.getInstance();
+  // initScreen = preferences.getInt("initScreen");
+  // await preferences.setInt("initScreen", 1);
   print(initScreen);
   LicenseRegistry.addLicense(() async* {
     final license = await rootBundle.loadString('google_fonts/OFL.txt');

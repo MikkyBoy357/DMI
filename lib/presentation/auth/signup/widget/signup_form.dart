@@ -21,6 +21,11 @@ class _SignupFormState extends State<SignupForm> {
 
   bool isObscured = true;
 
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,6 +35,7 @@ class _SignupFormState extends State<SignupForm> {
         child: Column(
           children: [
             TextFormField(
+              controller: nameController,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 labelStyle: TextStyle(color: Colors.green),
@@ -52,6 +58,7 @@ class _SignupFormState extends State<SignupForm> {
             ),
             SizedBox(height: 20),
             TextFormField(
+              controller: emailController,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 labelStyle: TextStyle(color: Colors.green),
@@ -66,6 +73,7 @@ class _SignupFormState extends State<SignupForm> {
             ),
             SizedBox(height: 20),
             TextFormField(
+              controller: phoneController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelStyle: TextStyle(color: Colors.green),
@@ -80,6 +88,7 @@ class _SignupFormState extends State<SignupForm> {
             ),
             SizedBox(height: 20),
             TextFormField(
+              controller: passwordController,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 labelStyle: TextStyle(color: Colors.green),
@@ -113,7 +122,7 @@ class _SignupFormState extends State<SignupForm> {
 
                   return;
                 } else {
-                  print("UnSuccessfull");
+                  print("Invalid Email or Password");
                 }
               },
             ),

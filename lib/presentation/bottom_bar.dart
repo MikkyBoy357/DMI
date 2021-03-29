@@ -32,7 +32,7 @@ class BottomBar extends StatelessWidget {
           icon: Icon(Icons.shopping_cart_outlined),
         ),
         BottomNavigationBarItem(
-          label: 'More',
+          label: 'Favorite',
           icon: Icon(Icons.favorite_border_outlined),
         ),
         BottomNavigationBarItem(

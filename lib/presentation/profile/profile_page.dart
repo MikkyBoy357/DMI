@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:shoppingApp/presentation/profile/my_address.dart/my_address.dart';
 
 import '../auth/common/signout_dialog.dart';
 import '../common_widget/profile_pic_upload.dart';
@@ -96,7 +97,12 @@ class ProfilePage extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () =>
-                          ExtendedNavigator.of(context).push(Routes.myAddress),
+                          // ExtendedNavigator.of(context).push(Routes.myAddress),
+                          MaterialPageRoute(
+                        builder: (context) {
+                          return MyAddress();
+                        },
+                      ),
                       child: ListTile(
                         leading: Icon(Icons.location_city_sharp,
                             color: Theme.of(context).accentColor),
@@ -143,7 +149,15 @@ class ProfilePage extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        BlurryDialog("hello", "ehllo");
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return BlurryDialog(
+                              title: "Logout",
+                              content: "Are you sure you want to Logout?",
+                            );
+                          },
+                        );
                       },
                       child: ListTile(
                         leading: Icon(Icons.login_outlined,
