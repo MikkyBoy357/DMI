@@ -8,6 +8,8 @@ import 'package:shoppingApp/main.dart';
 import 'package:shoppingApp/presentation/core/app_router.gr.dart';
 import 'package:shoppingApp/presentation/core/shopping_app.dart';
 
+import '../../../Const.dart';
+
 class BlurryDialog extends StatelessWidget {
   final String title;
   final String content;
@@ -50,9 +52,7 @@ class BlurryDialog extends StatelessWidget {
               child: new Text("Continue"),
               onPressed: () {
                 context.read<AuthBloc>().add(AuthEvent.logoutRequested());
-                print(initScreen);
-                initScreen = null;
-                print(initScreen);
+                initScreen = 0;
                 runApp(ShoppingApp());
                 print("Logout Requested");
               },

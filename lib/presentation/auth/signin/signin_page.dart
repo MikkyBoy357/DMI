@@ -21,6 +21,7 @@ class SigninPage extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           title: Text(
             "Login",

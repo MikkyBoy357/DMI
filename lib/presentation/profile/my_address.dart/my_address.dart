@@ -62,7 +62,6 @@ class _MyAddressState extends State<MyAddress> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getAddress();
   }

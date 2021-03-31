@@ -1,9 +1,47 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../common_widget/text_style.dart';
 
-class EnterOTP extends StatelessWidget {
+class EnterOTP extends StatefulWidget {
+  final String email;
+
+  const EnterOTP({Key key, this.email}) : super(key: key);
+
+  @override
+  _EnterOTPState createState() => _EnterOTPState();
+}
+
+class _EnterOTPState extends State<EnterOTP> {
+  var results;
+  Dio dio = new Dio();
+
+  verifyNumber() async {
+    FormData formData = new FormData.fromMap({
+      'email': widget.email,
+    });
+    dio.options.headers["authorization"] = "LS";
+    dio.options.headers['device_id'] = 123456;
+    dio.options.headers['device_version'] = 1;
+    dio.options.headers['device_type'] = 1;
+    dio.options.headers['store_id'] = 14;
+    var response = await dio.post(
+      'http://4percentmedical.com/dks/grocery/Api/Restapi/register',
+      options: Options(headers: {
+        HttpHeaders.contentTypeHeader: "application/json",
+      }),
+      data: formData,
+    );
+    results = jsonDecode(response.data);
+    print(' HERE');
+    print(results);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,6 +85,8 @@ class EnterOTP extends StatelessWidget {
                   OTPDigitTextFieldBox(first: true, last: false),
                   OTPDigitTextFieldBox(first: false, last: false),
                   OTPDigitTextFieldBox(first: false, last: false),
+                  OTPDigitTextFieldBox(first: false, last: false),
+                  OTPDigitTextFieldBox(first: false, last: false),
                   OTPDigitTextFieldBox(first: false, last: true),
                 ],
               )
@@ -82,7 +122,7 @@ class OTPDigitTextFieldBox extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(13),
       ),
-      height: 65,
+      height: 55,
       child: Center(
         child: AspectRatio(
           aspectRatio: 1,
@@ -111,7 +151,7 @@ class OTPDigitTextFieldBox extends StatelessWidget {
               focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(width: 2, color: Colors.green),
                   borderRadius: BorderRadius.circular(13)),
-              hintText: "*",
+              hintText: "",
               hintStyle: TextStyle(color: Colors.black),
             ),
           ),
